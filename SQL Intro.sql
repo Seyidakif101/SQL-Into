@@ -12,7 +12,7 @@ Id int primary key identity,
 Fullname nvarchar(255) not null,
 Age int check(Age>0) not null,
 Email nvarchar(255) unique not null,
-Salary decimal(8,2) check(300<Salary or Salary<2000) not null,
+Salary decimal(8,2) check(Salary > 300 and Salary < 2000) not null
 )
 
 INSERT INTO Employees(Fullname,Age,Email,Salary)
@@ -25,4 +25,5 @@ values
 Select*from Employees
 
 update Employees set Salary=1000
+
 where Id=1
